@@ -17,7 +17,7 @@ function App() {
     
     const hello = "Hello World"
     const parsedData = {hello , url}
-    const response = await fetch('http://localhost:5000/api/scanQRCode/' ,{method:'POST' ,headers: { 'Content-Type': 'application/json' },body :JSON.stringify(parsedData)})
+    const response = await fetch('https://qr-generator-syx2.onrender.com/api/scanQRCode/' ,{method:'POST' ,headers: { 'Content-Type': 'application/json' },body :JSON.stringify(parsedData)})
     // const data = response.json()
     // console.log("Data"  + data);s
     // const parsed = await response.json()
