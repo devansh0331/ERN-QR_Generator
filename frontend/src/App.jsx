@@ -1,6 +1,8 @@
 
 import './App.css';
 import React, { useState } from 'react'
+import { Audio } from 'react-loader-spinner'
+import GridLoader from "react-spinners/GridLoader"
 
 
 function App() {
@@ -9,9 +11,10 @@ function App() {
   const [qr, setQR] = useState('')
   
   const [qrName, setQRName] = useState('')
-
+  const [loading , setLoading] = useState(false)
 
   const handleOnSubmit= async (e) => {
+    setLoading(true)
     e.preventDefault()
     // console.log(url);
     
@@ -23,6 +26,7 @@ function App() {
     // const parsed = await response.json()
     const data = await response.json()
     // console.log("Response " + data.msg);
+    setLoading(false)
     setQR(data.msg)
     // console.log("Data" + response.data);
     // setQR(response.data)
@@ -41,9 +45,9 @@ function App() {
       </form>
 
     {/* {url && <> */}
-     {qr && <div>
 
-      <img src={qr} alt="qrCode" />
+     {qr && <div>
+      {!loading ?  <img src={qr} alt="qrCode" /> : <GridLoader color="#0000FF" />}
       <p>Scan this QR and jump to your URL <br></br><br></br>or</p>
       <div className='moredetails'>
       <input type="text" value={qrName} placeholder='"QR" or Rename...' onChange={e => setQRName(e.target.value)} id="r-inp" />
