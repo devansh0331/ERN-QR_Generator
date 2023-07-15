@@ -12,9 +12,11 @@ function App() {
   
   const [qrName, setQRName] = useState('')
   const [loading , setLoading] = useState(false)
+  const [bool , setBool] = useState(false)
 
   const handleOnSubmit= async (e) => {
     setLoading(true)
+    setQR('qr')
     e.preventDefault()
     // console.log(url);
     
@@ -27,6 +29,7 @@ function App() {
     const data = await response.json()
     // console.log("Response " + data.msg);
     setLoading(false)
+    
     setQR(data.msg)
     // console.log("Data" + response.data);
     // setQR(response.data)
@@ -40,7 +43,7 @@ function App() {
       <h1>QR Code Generator</h1>
       
       <form action="" onSubmit={handleOnSubmit}>
-          <input type="text" placeholder='Enter a valid URL' value={url} onChange={e => seturl(e.target.value)}/>
+          <input type="text" placeholder='Enter a valid URL' value={url} onChange={e => {seturl(e.target.value)}}/>
           <button>Generate</button>
       </form>
 
