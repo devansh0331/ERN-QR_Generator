@@ -1,7 +1,6 @@
 
 import './App.css';
 import React, { useState } from 'react'
-import { Audio } from 'react-loader-spinner'
 import GridLoader from "react-spinners/GridLoader"
 
 
