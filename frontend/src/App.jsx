@@ -11,7 +11,6 @@ function App() {
   
   const [qrName, setQRName] = useState('')
   const [loading , setLoading] = useState(false)
-  const [bool , setBool] = useState(false)
 
   const handleOnSubmit= async (e) => {
     setLoading(true)
